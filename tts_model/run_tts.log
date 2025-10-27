@@ -1,0 +1,148 @@
+nohup: 入力を無視します
+/opt/conda/envs/tts_env/lib/python3.11/site-packages/huggingface_hub/file_download.py:979: UserWarning: `local_dir_use_symlinks` parameter is deprecated and will be ignored. The process to download files to a local folder has been updated and do not rely on symlinks anymore. You only need to pass a destination folder as`local_dir`.
+For more details, check out https://huggingface.co/docs/huggingface_hub/main/en/guides/download#download-files-to-local-folder.
+  warnings.warn(
+Fetching 12 files:   0%|          | 0/12 [00:00<?, ?it/s]Fetching 12 files:   8%|▊         | 1/12 [00:00<00:03,  3.31it/s]Fetching 12 files:  67%|██████▋   | 8/12 [01:18<00:40, 10.13s/it]Fetching 12 files: 100%|██████████| 12/12 [01:18<00:00,  6.51s/it]
+Flash attention 2 is not installed
+You set `add_prefix_space`. The tokenizer needs to be converted from the slow tokenizers
+/opt/conda/envs/tts_env/lib/python3.11/site-packages/torch/nn/utils/weight_norm.py:143: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+Config of the text_encoder: <class 'transformers.models.t5.modeling_t5.T5EncoderModel'> is overwritten by shared text_encoder config: T5Config {
+  "_name_or_path": "google/flan-t5-xl",
+  "architectures": [
+    "T5ForConditionalGeneration"
+  ],
+  "classifier_dropout": 0.0,
+  "d_ff": 5120,
+  "d_kv": 64,
+  "d_model": 2048,
+  "decoder_start_token_id": 0,
+  "dense_act_fn": "gelu_new",
+  "dropout_rate": 0.1,
+  "eos_token_id": 1,
+  "feed_forward_proj": "gated-gelu",
+  "initializer_factor": 1.0,
+  "is_encoder_decoder": true,
+  "is_gated_act": true,
+  "layer_norm_epsilon": 1e-06,
+  "model_type": "t5",
+  "n_positions": 512,
+  "num_decoder_layers": 24,
+  "num_heads": 32,
+  "num_layers": 24,
+  "output_past": true,
+  "pad_token_id": 0,
+  "relative_attention_max_distance": 128,
+  "relative_attention_num_buckets": 32,
+  "task_specific_params": {
+    "summarization": {
+      "early_stopping": true,
+      "length_penalty": 2.0,
+      "max_length": 200,
+      "min_length": 30,
+      "no_repeat_ngram_size": 3,
+      "num_beams": 4,
+      "prefix": "summarize: "
+    },
+    "translation_en_to_de": {
+      "early_stopping": true,
+      "max_length": 300,
+      "num_beams": 4,
+      "prefix": "translate English to German: "
+    },
+    "translation_en_to_fr": {
+      "early_stopping": true,
+      "max_length": 300,
+      "num_beams": 4,
+      "prefix": "translate English to French: "
+    },
+    "translation_en_to_ro": {
+      "early_stopping": true,
+      "max_length": 300,
+      "num_beams": 4,
+      "prefix": "translate English to Romanian: "
+    }
+  },
+  "tie_word_embeddings": false,
+  "torch_dtype": "float32",
+  "transformers_version": "4.46.1",
+  "use_cache": true,
+  "vocab_size": 32128
+}
+
+Config of the audio_encoder: <class 'parler_tts.dac_wrapper.modeling_dac.DACModel'> is overwritten by shared audio_encoder config: DACConfig {
+  "_name_or_path": "ylacombe/dac_44khZ_8kbps",
+  "architectures": [
+    "DACModel"
+  ],
+  "codebook_size": 1024,
+  "frame_rate": 86,
+  "latent_dim": 1024,
+  "model_bitrate": 8,
+  "model_type": "dac_on_the_hub",
+  "num_codebooks": 9,
+  "sampling_rate": 44100,
+  "torch_dtype": "float32",
+  "transformers_version": "4.46.1"
+}
+
+Config of the decoder: <class 'parler_tts.modeling_parler_tts.ParlerTTSForCausalLM'> is overwritten by shared decoder config: ParlerTTSDecoderConfig {
+  "_name_or_path": "/fsx/yoach/tmp/artefacts/parler-tts-large-og/decoder",
+  "activation_dropout": 0.0,
+  "activation_function": "gelu",
+  "add_cross_attention": true,
+  "architectures": [
+    "ParlerTTSForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 1025,
+  "codebook_weights": null,
+  "cross_attention_implementation_strategy": null,
+  "dropout": 0.1,
+  "eos_token_id": 1024,
+  "ffn_dim": 6144,
+  "hidden_size": 1536,
+  "initializer_factor": 0.02,
+  "is_decoder": true,
+  "layerdrop": 0.0,
+  "max_position_embeddings": 4096,
+  "model_type": "parler_tts_decoder",
+  "num_attention_heads": 24,
+  "num_codebooks": 9,
+  "num_cross_attention_key_value_heads": 24,
+  "num_hidden_layers": 25,
+  "num_key_value_heads": 24,
+  "pad_token_id": 1024,
+  "rope_embeddings": false,
+  "rope_theta": 10000.0,
+  "scale_embedding": false,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float32",
+  "transformers_version": "4.46.1",
+  "use_cache": true,
+  "use_fused_lm_heads": false,
+  "vocab_size": 1088
+}
+
+/opt/conda/envs/tts_env/lib/python3.11/site-packages/huggingface_hub/file_download.py:979: UserWarning: `local_dir_use_symlinks` parameter is deprecated and will be ignored. The process to download files to a local folder has been updated and do not rely on symlinks anymore. You only need to pass a destination folder as`local_dir`.
+For more details, check out https://huggingface.co/docs/huggingface_hub/main/en/guides/download#download-files-to-local-folder.
+  warnings.warn(
+[run_tts] Parler saved: /app/src/3D_avatars/tts_model/result/parler_20251027_161348.wav
+Fetching 799 files:   0%|          | 0/799 [00:00<?, ?it/s]Fetching 799 files:   0%|          | 1/799 [00:00<03:13,  4.13it/s]Fetching 799 files:   0%|          | 3/799 [01:53<9:17:53, 42.05s/it]Fetching 799 files:   1%|          | 4/799 [01:57<6:20:00, 28.68s/it]Fetching 799 files:  26%|██▌       | 209/799 [01:57<02:45,  3.56it/s]Fetching 799 files:  32%|███▏      | 258/799 [02:02<02:07,  4.26it/s]Fetching 799 files:  36%|███▌      | 288/799 [02:04<01:47,  4.77it/s]Fetching 799 files:  39%|███▊      | 308/799 [02:06<01:35,  5.16it/s]Fetching 799 files:  40%|████      | 322/799 [02:08<01:26,  5.51it/s]Fetching 799 files:  42%|████▏     | 332/799 [02:09<01:20,  5.83it/s]Fetching 799 files:  42%|████▏     | 339/799 [02:09<01:15,  6.09it/s]Fetching 799 files:  43%|████▎     | 344/799 [02:10<01:11,  6.32it/s]Fetching 799 files:  44%|████▎     | 348/799 [02:10<01:10,  6.44it/s]Fetching 799 files:  44%|████▍     | 352/799 [02:11<01:04,  6.89it/s]Fetching 799 files:  44%|████▍     | 355/799 [02:11<01:00,  7.33it/s]Fetching 799 files:  45%|████▍     | 358/799 [02:11<00:56,  7.77it/s]Fetching 799 files:  45%|████▌     | 360/799 [02:11<00:56,  7.78it/s]Fetching 799 files:  45%|████▌     | 362/799 [02:12<00:53,  8.20it/s]Fetching 799 files:  46%|████▌     | 364/799 [02:12<00:49,  8.87it/s]Fetching 799 files:  46%|████▌     | 366/799 [02:12<00:48,  9.01it/s]Fetching 799 files:  46%|████▌     | 368/799 [02:12<00:48,  8.86it/s]Fetching 799 files:  46%|████▋     | 370/799 [02:12<00:45,  9.52it/s]Fetching 799 files:  47%|████▋     | 372/799 [02:13<00:43,  9.91it/s]Fetching 799 files:  47%|████▋     | 374/799 [02:13<00:43,  9.68it/s]Fetching 799 files:  47%|████▋     | 376/799 [02:13<01:01,  6.91it/s]Fetching 799 files:  48%|████▊     | 382/799 [02:14<00:37, 11.08it/s]Fetching 799 files:  48%|████▊     | 384/799 [02:14<00:38, 10.82it/s]Fetching 799 files:  48%|████▊     | 386/799 [02:14<00:41,  9.84it/s]Fetching 799 files:  49%|████▊     | 389/799 [02:14<00:33, 12.38it/s]Fetching 799 files:  49%|████▉     | 391/799 [02:14<00:37, 10.95it/s]Fetching 799 files:  49%|████▉     | 393/799 [02:15<00:40,  9.96it/s]Fetching 799 files:  49%|████▉     | 395/799 [02:15<00:37, 10.67it/s]Fetching 799 files:  50%|████▉     | 398/799 [02:15<00:39, 10.23it/s]Fetching 799 files:  50%|█████     | 400/799 [02:15<00:36, 10.95it/s]Fetching 799 files:  50%|█████     | 402/799 [02:16<00:42,  9.43it/s]Fetching 799 files:  51%|█████     | 404/799 [02:16<00:39, 10.06it/s]Fetching 799 files:  51%|█████     | 406/799 [02:16<00:36, 10.66it/s]Fetching 799 files:  51%|█████     | 408/799 [02:16<00:33, 11.62it/s]Fetching 799 files:  51%|█████▏    | 410/799 [02:16<00:41,  9.41it/s]Fetching 799 files:  52%|█████▏    | 412/799 [02:17<00:51,  7.55it/s]Fetching 799 files:  52%|█████▏    | 417/799 [02:17<00:34, 11.22it/s]Fetching 799 files:  52%|█████▏    | 419/799 [02:17<00:32, 11.86it/s]Fetching 799 files:  53%|█████▎    | 421/799 [02:17<00:40,  9.31it/s]Fetching 799 files:  53%|█████▎    | 425/799 [02:18<00:34, 10.73it/s]Fetching 799 files:  53%|█████▎    | 427/799 [02:18<00:31, 11.68it/s]Fetching 799 files:  54%|█████▎    | 429/799 [02:18<00:37,  9.87it/s]Fetching 799 files:  54%|█████▍    | 431/799 [02:18<00:35, 10.38it/s]Fetching 799 files:  54%|█████▍    | 433/799 [02:19<00:34, 10.47it/s]Fetching 799 files:  54%|█████▍    | 435/799 [02:19<00:32, 11.29it/s]Fetching 799 files:  55%|█████▍    | 437/799 [02:19<00:36, 10.05it/s]Fetching 799 files:  55%|█████▍    | 439/799 [02:19<00:30, 11.69it/s]Fetching 799 files:  55%|█████▌    | 441/799 [02:19<00:35, 10.16it/s]Fetching 799 files:  55%|█████▌    | 443/799 [02:20<00:47,  7.42it/s]Fetching 799 files:  56%|█████▌    | 448/799 [02:20<00:27, 12.97it/s]Fetching 799 files:  56%|█████▋    | 451/799 [02:20<00:36,  9.44it/s]Fetching 799 files:  57%|█████▋    | 453/799 [02:20<00:33, 10.48it/s]Fetching 799 files:  57%|█████▋    | 456/799 [02:21<00:26, 12.82it/s]Fetching 799 files:  57%|█████▋    | 458/799 [02:21<00:40,  8.40it/s]Fetching 799 files:  58%|█████▊    | 461/799 [02:21<00:31, 10.60it/s]Fetching 799 files:  58%|█████▊    | 464/799 [02:21<00:25, 13.09it/s]Fetching 799 files:  58%|█████▊    | 466/799 [02:22<00:40,  8.19it/s]Fetching 799 files:  59%|█████▉    | 470/799 [02:22<00:28, 11.42it/s]Fetching 799 files:  59%|█████▉    | 473/799 [02:23<00:39,  8.27it/s]Fetching 799 files:  60%|█████▉    | 478/799 [02:23<00:34,  9.17it/s]Fetching 799 files:  60%|██████    | 481/799 [02:23<00:33,  9.45it/s]Fetching 799 files:  60%|██████    | 483/799 [02:23<00:30, 10.51it/s]Fetching 799 files:  61%|██████    | 487/799 [02:24<00:22, 13.98it/s]Fetching 799 files:  61%|██████    | 489/799 [02:24<00:34,  9.07it/s]Fetching 799 files:  61%|██████▏   | 491/799 [02:24<00:29, 10.29it/s]Fetching 799 files:  62%|██████▏   | 493/799 [02:24<00:29, 10.42it/s]Fetching 799 files:  62%|██████▏   | 496/799 [02:25<00:26, 11.39it/s]Fetching 799 files:  62%|██████▏   | 498/799 [02:25<00:32,  9.18it/s]Fetching 799 files:  63%|██████▎   | 501/799 [02:25<00:25, 11.85it/s]Fetching 799 files:  63%|██████▎   | 503/799 [02:25<00:22, 13.15it/s]Fetching 799 files:  63%|██████▎   | 505/799 [02:26<00:34,  8.64it/s]Fetching 799 files:  64%|██████▎   | 508/799 [02:26<00:26, 11.12it/s]Fetching 799 files:  64%|██████▍   | 510/799 [02:26<00:23, 12.48it/s]Fetching 799 files:  64%|██████▍   | 512/799 [02:26<00:29,  9.87it/s]Fetching 799 files:  64%|██████▍   | 514/799 [02:26<00:31,  9.09it/s]Fetching 799 files:  65%|██████▍   | 517/799 [02:27<00:24, 11.65it/s]Fetching 799 files:  65%|██████▌   | 520/799 [02:27<00:26, 10.43it/s]Fetching 799 files:  65%|██████▌   | 522/799 [02:27<00:29,  9.25it/s]Fetching 799 files:  66%|██████▌   | 525/799 [02:27<00:23, 11.70it/s]Fetching 799 files:  66%|██████▌   | 527/799 [02:28<00:23, 11.38it/s]Fetching 799 files:  66%|██████▌   | 529/799 [02:28<00:37,  7.15it/s]Fetching 799 files:  67%|██████▋   | 534/799 [02:28<00:21, 12.06it/s]Fetching 799 files:  67%|██████▋   | 537/799 [02:29<00:28,  9.04it/s]Fetching 799 files:  68%|██████▊   | 540/799 [02:29<00:23, 11.25it/s]Fetching 799 files:  68%|██████▊   | 542/799 [02:29<00:21, 12.22it/s]Fetching 799 files:  68%|██████▊   | 544/799 [02:29<00:24, 10.32it/s]Fetching 799 files:  68%|██████▊   | 546/799 [02:30<00:29,  8.61it/s]Fetching 799 files:  69%|██████▉   | 550/799 [02:30<00:21, 11.85it/s]Fetching 799 files:  69%|██████▉   | 552/799 [02:30<00:23, 10.38it/s]Fetching 799 files:  69%|██████▉   | 554/799 [02:30<00:26,  9.28it/s]Fetching 799 files:  70%|██████▉   | 558/799 [02:31<00:19, 12.29it/s]Fetching 799 files:  70%|███████   | 560/799 [02:31<00:22, 10.61it/s]Fetching 799 files:  70%|███████   | 562/799 [02:31<00:25,  9.45it/s]Fetching 799 files:  71%|███████   | 566/799 [02:31<00:19, 11.96it/s]Fetching 799 files:  71%|███████   | 568/799 [02:32<00:21, 10.60it/s]Fetching 799 files:  71%|███████▏  | 570/799 [02:32<00:24,  9.21it/s]Fetching 799 files:  72%|███████▏  | 574/799 [02:32<00:19, 11.59it/s]Fetching 799 files:  72%|███████▏  | 576/799 [02:32<00:21, 10.42it/s]Fetching 799 files:  72%|███████▏  | 578/799 [02:33<00:24,  9.13it/s]Fetching 799 files:  73%|███████▎  | 582/799 [02:33<00:18, 11.83it/s]Fetching 799 files:  73%|███████▎  | 584/799 [02:33<00:20, 10.69it/s]Fetching 799 files:  73%|███████▎  | 586/799 [02:34<00:30,  6.90it/s]Fetching 799 files:  74%|███████▍  | 592/799 [02:34<00:16, 12.32it/s]Fetching 799 files:  74%|███████▍  | 595/799 [02:34<00:20, 10.09it/s]Fetching 799 files:  75%|███████▍  | 597/799 [02:34<00:20,  9.80it/s]Fetching 799 files:  75%|███████▌  | 601/799 [02:35<00:20,  9.55it/s]Fetching 799 files:  75%|███████▌  | 603/799 [02:35<00:20,  9.75it/s]Fetching 799 files:  76%|███████▌  | 605/799 [02:35<00:18, 10.53it/s]Fetching 799 files:  76%|███████▌  | 608/799 [02:35<00:14, 12.83it/s]Fetching 799 files:  76%|███████▋  | 610/799 [02:36<00:19,  9.70it/s]Fetching 799 files:  77%|███████▋  | 612/799 [02:36<00:17, 10.54it/s]Fetching 799 files:  77%|███████▋  | 614/799 [02:36<00:15, 11.56it/s]Fetching 799 files:  77%|███████▋  | 616/799 [02:36<00:19,  9.56it/s]Fetching 799 files:  77%|███████▋  | 618/799 [02:36<00:18,  9.97it/s]Fetching 799 files:  78%|███████▊  | 620/799 [02:37<00:16, 10.92it/s]Fetching 799 files:  78%|███████▊  | 622/799 [02:37<00:14, 12.30it/s]Fetching 799 files:  78%|███████▊  | 624/799 [02:37<00:19,  8.97it/s]Fetching 799 files:  78%|███████▊  | 626/799 [02:37<00:17, 10.09it/s]Fetching 799 files:  79%|███████▊  | 628/799 [02:37<00:15, 11.12it/s]Fetching 799 files:  79%|███████▉  | 630/799 [02:37<00:13, 12.23it/s]Fetching 799 files:  79%|███████▉  | 632/799 [02:38<00:18,  9.16it/s]Fetching 799 files:  79%|███████▉  | 634/799 [02:38<00:16, 10.07it/s]Fetching 799 files:  80%|███████▉  | 636/799 [02:38<00:14, 11.47it/s]Fetching 799 files:  80%|███████▉  | 638/799 [02:38<00:13, 11.74it/s]Fetching 799 files:  80%|████████  | 640/799 [02:39<00:16,  9.44it/s]Fetching 799 files:  80%|████████  | 642/799 [02:39<00:15, 10.12it/s]Fetching 799 files:  81%|████████  | 645/799 [02:39<00:14, 10.74it/s]Fetching 799 files:  81%|████████  | 648/799 [02:39<00:16,  9.14it/s]Fetching 799 files:  81%|████████▏ | 651/799 [02:40<00:15,  9.65it/s]Fetching 799 files:  82%|████████▏ | 656/799 [02:40<00:15,  9.00it/s]Fetching 799 files:  82%|████████▏ | 659/799 [02:40<00:13, 10.50it/s]Fetching 799 files:  83%|████████▎ | 661/799 [02:41<00:12, 11.02it/s]Fetching 799 files:  83%|████████▎ | 664/799 [02:41<00:18,  7.26it/s]Fetching 799 files:  84%|████████▍ | 672/799 [02:42<00:12, 10.15it/s]Fetching 799 files:  84%|████████▍ | 674/799 [02:42<00:15,  8.10it/s]Fetching 799 files:  85%|████████▌ | 680/799 [02:43<00:10, 11.25it/s]Fetching 799 files:  85%|████████▌ | 682/799 [02:43<00:10, 10.84it/s]Fetching 799 files:  86%|████████▌ | 687/799 [02:43<00:08, 12.50it/s]Fetching 799 files:  86%|████████▌ | 689/799 [02:44<00:11,  9.91it/s]Fetching 799 files:  87%|████████▋ | 693/799 [02:44<00:08, 13.18it/s]Fetching 799 files:  87%|████████▋ | 695/799 [02:44<00:08, 11.70it/s]Fetching 799 files:  87%|████████▋ | 697/799 [02:44<00:12,  8.47it/s]Fetching 799 files:  88%|████████▊ | 703/799 [02:45<00:08, 11.65it/s]Fetching 799 files:  88%|████████▊ | 705/799 [02:45<00:10,  9.26it/s]Fetching 799 files:  88%|████████▊ | 707/799 [02:45<00:09, 10.16it/s]Fetching 799 files:  89%|████████▉ | 710/799 [02:45<00:08, 10.31it/s]Fetching 799 files:  89%|████████▉ | 712/799 [02:46<00:08, 10.32it/s]Fetching 799 files:  89%|████████▉ | 714/799 [02:46<00:08,  9.60it/s]Fetching 799 files:  90%|████████▉ | 717/799 [02:46<00:08,  9.49it/s]Fetching 799 files:  90%|█████████ | 720/799 [02:46<00:07, 10.16it/s]Fetching 799 files:  90%|█████████ | 722/799 [02:47<00:07, 10.27it/s]Fetching 799 files:  91%|█████████ | 724/799 [02:47<00:08,  9.04it/s]Fetching 799 files:  91%|█████████ | 728/799 [02:47<00:07,  9.64it/s]Fetching 799 files:  91%|█████████ | 729/799 [02:47<00:07,  9.61it/s]Fetching 799 files:  91%|█████████▏| 730/799 [02:48<00:07,  9.02it/s]Fetching 799 files:  92%|█████████▏| 734/799 [02:48<00:04, 13.71it/s]Fetching 799 files:  92%|█████████▏| 736/799 [02:48<00:06, 10.06it/s]Fetching 799 files:  92%|█████████▏| 738/799 [02:48<00:05, 11.09it/s]Fetching 799 files:  93%|█████████▎| 740/799 [02:48<00:05, 10.56it/s]Fetching 799 files:  93%|█████████▎| 742/799 [02:49<00:06,  8.19it/s]Fetching 799 files:  93%|█████████▎| 745/799 [02:49<00:04, 10.85it/s]Fetching 799 files:  93%|█████████▎| 747/799 [02:49<00:05,  9.17it/s]Fetching 799 files:  94%|█████████▍| 751/799 [02:50<00:04, 10.20it/s]Fetching 799 files:  94%|█████████▍| 754/799 [02:50<00:04,  9.86it/s]Fetching 799 files:  95%|█████████▍| 758/799 [02:50<00:03, 13.66it/s]Fetching 799 files:  95%|█████████▌| 760/799 [02:50<00:03, 10.09it/s]Fetching 799 files:  95%|█████████▌| 762/799 [02:51<00:03,  9.27it/s]Fetching 799 files:  96%|█████████▌| 765/799 [02:51<00:03, 10.63it/s]Fetching 799 files:  96%|█████████▌| 767/799 [02:51<00:03, 10.08it/s]Fetching 799 files:  96%|█████████▌| 769/799 [02:51<00:03,  8.15it/s]Fetching 799 files:  96%|█████████▋| 770/799 [02:52<00:04,  6.90it/s]Fetching 799 files:  97%|█████████▋| 775/799 [02:52<00:01, 12.55it/s]Fetching 799 files:  97%|█████████▋| 778/799 [02:52<00:01, 11.26it/s]Fetching 799 files:  98%|█████████▊| 781/799 [02:52<00:01, 12.33it/s]Fetching 799 files:  98%|█████████▊| 783/799 [02:53<00:01, 11.29it/s]Fetching 799 files:  98%|█████████▊| 785/799 [02:53<00:01,  9.12it/s]Fetching 799 files:  99%|█████████▊| 789/799 [02:53<00:00, 12.46it/s]Fetching 799 files:  99%|█████████▉| 791/799 [02:53<00:00, 10.96it/s]Fetching 799 files:  99%|█████████▉| 791/799 [03:08<00:00, 10.96it/s]Fetching 799 files:  99%|█████████▉| 795/799 [03:44<00:20,  5.05s/it]Fetching 799 files: 100%|█████████▉| 796/799 [03:50<00:15,  5.12s/it]Fetching 799 files: 100%|██████████| 799/799 [03:50<00:00,  3.47it/s]
+/opt/conda/envs/tts_env/lib/python3.11/site-packages/transformers/models/encodec/modeling_encodec.py:124: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  self.register_buffer("padding_total", torch.tensor(kernel_size - stride, dtype=torch.int64), persistent=False)
+The attention mask and the pad token id were not set. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+Setting `pad_token_id` to `eos_token_id`:None for open-end generation.
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+/opt/conda/envs/tts_env/lib/python3.11/site-packages/huggingface_hub/file_download.py:979: UserWarning: `local_dir_use_symlinks` parameter is deprecated and will be ignored. The process to download files to a local folder has been updated and do not rely on symlinks anymore. You only need to pass a destination folder as`local_dir`.
+For more details, check out https://huggingface.co/docs/huggingface_hub/main/en/guides/download#download-files-to-local-folder.
+  warnings.warn(
+[run_tts] Bark saved: /app/src/3D_avatars/tts_model/result/bark_20251027_161348.wav
+Fetching 9 files:   0%|          | 0/9 [00:00<?, ?it/s]Fetching 9 files:  11%|█         | 1/9 [00:00<00:01,  5.06it/s]Fetching 9 files:  44%|████▍     | 4/9 [00:06<00:08,  1.78s/it]Fetching 9 files: 100%|██████████| 9/9 [00:06<00:00,  1.35it/s]
+Fetching 4 files:   0%|          | 0/4 [00:00<?, ?it/s]Fetching 4 files:  25%|██▌       | 1/4 [00:00<00:00,  4.92it/s]Fetching 4 files: 100%|██████████| 4/4 [00:01<00:00,  2.22it/s]Fetching 4 files: 100%|██████████| 4/4 [00:01<00:00,  2.31it/s]
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+The argument `trust_remote_code` is to be used with Auto classes. It has no effect here and is ignored.
+[run_tts] SpeechT5 失敗のためスキップ: 'SpeechT5OpenjtalkTokenizer' object has no attribute '_added_tokens_encoder'
+===== Completed TTS generation =====
+/app/src/3D_avatars/tts_model/result/parler_20251027_161348.wav
+/app/src/3D_avatars/tts_model/result/bark_20251027_161348.wav

@@ -1,0 +1,89 @@
+@/src/3D_avatars/tts_model/document/article/huggingface_co_2121_8_japanese_parler_tts_mini_text_E3_81_93.pdf
+@/src/3D_avatars/tts_model/document/article/huggingface_co_suno_bark_text_2_a_20few_20lines_20of_20code.pdf
+
+上記のttsモデルたちの概要、pythonかつローカルでの使用方法などを完璧に理解してください
+その後以下の処理を行なってください
+
+それぞれのモデルを簡単に使えるようにするための関数を備えた.pyファイルをそれぞれで作成して欲しいです（例：japanese_parler_tts_mini.py）、喋って欲しい言葉とwavファイルの保存先、GPUが使えるものは使用するものを選ぶ（0,1）などの引数で実行されるものです、ローカルモデルは必ず保存するようにしてください
+日本語想定なので、日本語に最適化された設定にしておいてください
+それらを統括して実行できるファイルが@/src/3D_avatars/tts_model/run_tts.py なので上記で作成したものをインポートして使えるようにしてください
+
+上記のタスクを正確に確実に作成していってください
+huggingfaceの使い方などは以下のファイルを参考にしてみてください
+以下のファイルは別プロジェクトでembedding modelをhuggingfaceからダウンロードしてきて使うものなので、あくまで参考程度にしてください
+
+@/src/WeatherLLM/Embedding/model/embeddinggemma_300m.py
+@/src/WeatherLLM/Embedding/model/GLuCoSE_base_ja_v2.py
+@/src/WeatherLLM/Embedding/model/JaColBERTv2_5.py
+@/src/WeatherLLM/Embedding/main_v1.py
+@/src/WeatherLLM/llm_utils.py
+
+コマンドは実行せずにプログラムの作成のみ行ってください
+
+src/3D_avatars/tts_model/run_tts.pyでは、話させたい言葉を入れると、全てのモデルの実行が簡単に行えるような仕様にして欲しいです
+GPUがある環境でしか動かさないので、GPUが使えるものは基本0番で起動します
+./resultsにそれぞれのwavファイルが入るようにしてください
+日本語で解説
+
+これらのプログラムは以下の環境で動く想定です
+```
+name: tts_env
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Python
+  - python=3.11
+
+  # PyTorch GPU stack (CUDA 12.4)
+  # Torch 2.6+ は .bin 読み込みのセキュリティ要件（CVE-2025-32434）を満たすため必須
+  - pytorch=2.6.*
+  - torchvision
+  - torchaudio
+  - pytorch-cuda=12.4
+
+  # 科学技術/画像/音声処理スタック（avater_env を統合）
+  - numpy
+  - pandas
+  - scipy
+  - pillow
+  - opencv
+  - imageio
+  - imageio-ffmpeg
+  - pysoundfile     # conda-forge の soundfile パッケージ名
+
+  # Hugging Face / TTS ツール群
+  - sentencepiece
+  - tokenizers
+  - safetensors
+  - accelerate
+  - datasets
+  - huggingface_hub
+  - einops
+
+  # 補助
+  - pyyaml
+  - requests
+  - protobuf
+  - tqdm
+  - psutil
+  - ffmpeg
+  - pip
+
+  # pip パッケージ
+  - pip:
+      # Parler / Bark / MMS / SpeechT5 などの最新 TTS サポート
+      - "transformers>=4.46.0"
+      # 大容量モデルDLの高速化
+      - hf-transfer
+      # 将来の A2F-3D NIM gRPC クライアント実装を想定（avater_env より統合）
+      - grpcio
+      # Local TTS backends and helpers
+      - encodec
+      - pyopenjtalk-prebuilt
+      - onnxruntime-gpu
+
+```
